@@ -1,0 +1,38 @@
+# Default options, modify as needed.
+
+# GPU Device
+device: 'cuda:0'  # 'cpu', 'cuda', or 'cuda:0'
+seed: 13  # random seed
+
+# Training
+epoch: 500  # max training epoch
+batch_size: 256  # batch size
+num_workers: 1  # number of workers for loading data
+lr: 1.0e-3  # learning rate
+
+# Inference
+acrostic: False  # is acrostic poetry or not
+start_words: '春花秋月夜江水寒冬年'  # the beginning of poem for creating
+prefix_words: '江流天地外，山色有無中。'  # used to control the emotions only
+comp_maxwds: 200  # maximum length for poetry creation
+
+# Model
+checkpoints: 'checkpoints/tang/'  # location for backup
+backupoints: [9, 49, 199, 499]  # specify which epoch will be backup
+model_cache: null  # model weight location for training
+model_path: null  # model weight location for inference
+
+# Dataset
+data_path: 'data/'  # The path to the dataset
+category: 'poet.tang'  # restrict genre
+author: null  # restrict author
+constrain: null  # restrict the length of poetry
+maxlen: 125  # fix the length of sequence for easy training
+
+# INFO: Please clear the related cache immediately while changing the
+# value of author, category, constrain or maxlen,  since the cache saved
+# related information.
+
+# Visualization
+vis_env: 'poetry'  # training visualization, environment name
+vis_frequency: 20  # training visualization, update frequency
